@@ -76,7 +76,7 @@ const loginUser=async(user)=>{
     }
     const {token,expirenIn}=generatetoken(rows[0].usuarioID)
     const usuarioID=rows[0].usuarioID
-    return({msg:"autenticacion exitoso",token,expirenIn,usuarioID,nombre:rows[0].nombre}) 
+    return({msg:"autenticacion exitoso",token,expirenIn,usuarioID,nombre:rows[0].nombre})  
 
    
 
