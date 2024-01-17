@@ -63,10 +63,11 @@ const mensajeUser=async(userinfo)=>{
 }
 const loginUser=async(user)=>{
  const {correo,password}=user
- console.log(correo)
+ console.log(correo,password)
  const query="SELECT * FROM usuarios WHERE correo=?"
  try {
     const [rows]=await(await connection).execute(query,[correo])
+    console.log(rows)
     if(rows.length<1){
     return("credenciales incorrecto")
     }
@@ -74,7 +75,7 @@ const loginUser=async(user)=>{
       return("credenciales incorrecto")
     }
     const {token,expirenIn}=generatetoken(rows[0].usuarioID)
-    return({msg:"autenticacion exitoso",token,expirenIn})
+    return({msg:"autenticacion exitoso",token,expirenIn}) 
 
    
 
@@ -92,7 +93,7 @@ try {
     JOIN usuarios ON mensajes.usuarioID = usuarios.usuarioID
     JOIN imagenes ON usuarios.usuarioID = imagenes.usuarioID
     `)
-    console.log(rows)
+    return({data:rows})
     
 } catch (error) {
      console.log(error)

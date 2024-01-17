@@ -1,6 +1,6 @@
 const express=require("express")
 const cors=require("cors")
-const env=require("dotenv")
+const env=require("dotenv") 
 env.config()
 const PORT=  9000|| process.env.PORT
 const path=require("path")
