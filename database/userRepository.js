@@ -89,6 +89,7 @@ const infoMensaje=async()=>{
 try {
   
      const [rows]=await(await connection).execute(
+    
     /*    `
     SELECT mensajes.mensaje, imagenes.imagen, usuarios.correo,usuarios.nombre,mensajes.fecha_mensaje
     FROM mensajes
@@ -98,6 +99,7 @@ try {
     query
     
     )
+    console.log(rows)
     const mensajesConImagenes = rows.map((row) => {
       // Convertir la imagen blob a base64
       const imagenBase64 = row.imagen.toString('base64');
