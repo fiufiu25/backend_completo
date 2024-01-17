@@ -93,7 +93,22 @@ try {
     JOIN usuarios ON mensajes.usuarioID = usuarios.usuarioID
     JOIN imagenes ON usuarios.usuarioID = imagenes.usuarioID
     `)
-    return({data:rows})
+    const mensajesConImagenes = rows.map((row) => {
+      // Convertir la imagen blob a base64
+      const imagenBase64 = row.imagen.toString('base64');
+  
+      return {
+        mensaje: row.mensaje,
+        imagen: imagenBase64,
+        correo: row.correo,
+        nombre:row.nombre,
+        fecha:row.fecha_mensaje
+      };
+     
+    });
+return mensajesConImagenes
+
+
     
 } catch (error) {
      console.log(error)
