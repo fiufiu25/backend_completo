@@ -75,7 +75,8 @@ const loginUser=async(user)=>{
       return("credenciales incorrecto")
     }
     const {token,expirenIn}=generatetoken(rows[0].usuarioID)
-    return({msg:"autenticacion exitoso",token,expirenIn}) 
+    const usuarioID=rows[0].usuarioID
+    return({msg:"autenticacion exitoso",token,expirenIn,usuarioID,nombre:rows[0].nombre}) 
 
    
 
