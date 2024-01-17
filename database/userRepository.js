@@ -85,14 +85,19 @@ const loginUser=async(user)=>{
  }
 }
 const infoMensaje=async()=>{
+  const query="SELECT * FROM mensajes"
 try {
+  
      const [rows]=await(await connection).execute(
-        `
+    /*    `
     SELECT mensajes.mensaje, imagenes.imagen, usuarios.correo,usuarios.nombre,mensajes.fecha_mensaje
     FROM mensajes
     JOIN usuarios ON mensajes.usuarioID = usuarios.usuarioID
     JOIN imagenes ON usuarios.usuarioID = imagenes.usuarioID
-    `)
+    `*/
+    query
+    
+    )
     const mensajesConImagenes = rows.map((row) => {
       // Convertir la imagen blob a base64
       const imagenBase64 = row.imagen.toString('base64');
