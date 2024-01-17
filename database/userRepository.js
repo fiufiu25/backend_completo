@@ -111,7 +111,8 @@ try {
         imagen: imagenBase64,
         correo: row.correo,
         nombre:row.nombre,
-        fecha:row.fecha_mensaje
+        fecha:row.fecha_mensaje,
+        usuarioID:row.usuarioID
       };
      
     });
