@@ -95,7 +95,7 @@ try {
     FROM mensajes
     JOIN usuarios ON mensajes.usuarioID = usuarios.usuarioID
     JOIN imagenes ON usuarios.usuarioID = imagenes.usuarioID
-    ORDER BY mensajes.fecha_mensaje DESC;
+    ORDER BY mensajes.fecha_mensaje ASC ;
     `
     
     
