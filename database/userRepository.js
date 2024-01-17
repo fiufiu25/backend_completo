@@ -90,13 +90,14 @@ try {
   
      const [rows]=await(await connection).execute(
     
-    /*    `
-    SELECT mensajes.mensaje, imagenes.imagen, usuarios.correo,usuarios.nombre,mensajes.fecha_mensaje
+        `
+    SELECT mensajes.mensaje, imagenes.imagen,usuarios.nombre,mensajes.fecha_mensaje,mensajes.usuarioID
     FROM mensajes
     JOIN usuarios ON mensajes.usuarioID = usuarios.usuarioID
     JOIN imagenes ON usuarios.usuarioID = imagenes.usuarioID
-    `*/
-    query
+    ORDER BY mensajes.fecha_mensaje DESC;
+    `
+    
     
     )
     console.log(rows)
